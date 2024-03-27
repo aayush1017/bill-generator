@@ -1,0 +1,76 @@
+"use client";
+import { wordify } from "@/components/amountInwords";
+import BankankDetails from "@/components/bankDetails";
+import InvoiceDetails from "@/components/invoiceDetails";
+import InvoiceForm from "@/components/invoiceForm";
+import Signature from "@/components/signature";
+import Image from "next/image";
+import React, { useState } from "react";
+
+function BillPage() {
+  const [beforeTax, setBeforeTax] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    invoiceNo: "",
+    date: "",
+    totalAmount: "",
+    rate: "",
+    material: "Silver", // Default material selection
+  });
+  const [show, setShow] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    setBeforeTax(Math.floor((formData?.totalAmount / 103) * 100));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShow(true);
+    // console.log(formData);
+  };
+
+  const isFormValid = () => {
+    return (
+      formData.name !== "" &&
+      formData.date !== "" &&
+      formData.invoiceNo !== "" &&
+      formData.totalAmount !== "" &&
+      formData.rate !== ""
+    );
+  };
+
+  //   const handleDownload = () => {
+  //     const printableContent = document.getElementById("invoiceDiv").innerHTML;
+  //     const printWindow = window.open("", "_blank");
+  //     printWindow.document.write(
+  //       "<html><head><title>Printable Invoice</title></head><body>"
+  //     );
+  //     printWindow.document.write(printableContent);
+  //     printWindow.document.write("</body></html>");
+  //     printWindow.document.close();
+  //     printWindow.print();
+  //     printWindow.close();
+  //   };
+
+  return (
+    <>
+      {!show ? (
+        <InvoiceForm
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          isFormValid={isFormValid}
+        />
+      ) : (
+        <InvoiceDetails formData={formData} beforeTax={beforeTax} />
+      )}
+    </>
+  );
+}
+
+export default BillPage;
