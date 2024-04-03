@@ -57,7 +57,7 @@ function BillPage() {
 
   return (
     <>
-      {show ? (
+      {!show ? (
         <>
           {/* <Navbar /> */}
           <InvoiceForm
