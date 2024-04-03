@@ -1,10 +1,8 @@
 "use client";
-import { wordify } from "@/components/amountInwords";
-import BankankDetails from "@/components/bankDetails";
 import InvoiceDetails from "@/components/invoiceDetails";
 import InvoiceForm from "@/components/invoiceForm";
-import Signature from "@/components/signature";
-import Image from "next/image";
+import Navbar from "@/components/navbar/navbar";
+
 import React, { useState } from "react";
 
 function BillPage() {
@@ -59,13 +57,16 @@ function BillPage() {
 
   return (
     <>
-      {!show ? (
-        <InvoiceForm
-          formData={formData}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          isFormValid={isFormValid}
-        />
+      {show ? (
+        <>
+          {/* <Navbar /> */}
+          <InvoiceForm
+            formData={formData}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            isFormValid={isFormValid}
+          />
+        </>
       ) : (
         <InvoiceDetails formData={formData} beforeTax={beforeTax} />
       )}

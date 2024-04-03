@@ -59,7 +59,7 @@ const InvoiceDetails = ({ formData, beforeTax }) => {
 
       <div
         id="invoiceDiv"
-        className="max-w mx-5 mt-5 p-4 bg-white shadow-lg rounded-md"
+        className="max-w mx-5 mt-5 p-4 bg-white shadow-lg rounded-md border border-gray-500"
       >
         <h6 className="text-m text-center underline mb-2">Tax Invoice</h6>
         <div className="flex place-content-between mb-2">
