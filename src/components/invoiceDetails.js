@@ -118,7 +118,9 @@ const InvoiceDetails = ({ formData, beforeTax }) => {
                       : "Silver Article"
                   }`}
                 </td>
-                <td className="border border-gray-300 text-center">-</td>
+                <td className="border border-gray-300 text-center">
+                  {`${formData.material === "Gold" ? "7113" : "7114"}`}
+                </td>
                 <td className="border border-gray-300 text-center">
                   {`${
                     formData.material === "Silver"
