@@ -140,29 +140,37 @@ const InvoiceDetails = ({ formData, beforeTax }) => {
         </div>
         <div className="border-t border-gray-300 pt-4 flex mb-4 justify-between">
           <div>
-            <span className="font-semibold underline">
+            <span className="font-semibold underline text-sm">
               Total Invoice Amount Inwords:{" "}
             </span>
-            <span className="">{wordify(formData.totalAmount)} </span>
+            <span className="pl-2 pr-6 text-sm">
+              {wordify(formData.totalAmount)}{" "}
+            </span>
             <br />
             <BankankDetails />
           </div>
           <div>
             <div className="flex justify-end mb-2 gap-10">
-              <span className="font-semibold">Total Amount before tax</span>
+              <span className="font-semibold text-sm">
+                Total Amount before tax
+              </span>
               <span>{beforeTax}</span>
             </div>
             <div className="flex justify-end mb-2 gap-10">
-              <span className="font-semibold">CGST 1.5%</span>
-              <span>{(formData.totalAmount - beforeTax) / 2}</span>
+              <span className="font-semibold text-sm">CGST 1.5%</span>
+              <span className="text-sm">
+                {(formData.totalAmount - beforeTax) / 2}
+              </span>
             </div>
             <div className="flex justify-end mb-2 gap-10">
-              <span className="font-semibold">SGST 1.5%</span>
-              <span>{(formData.totalAmount - beforeTax) / 2}</span>
+              <span className="font-semibold text-sm">SGST 1.5%</span>
+              <span className="text-sm">
+                {(formData.totalAmount - beforeTax) / 2}
+              </span>
             </div>
             <div className="flex justify-end gap-10">
-              <span className="font-semibold">Total:</span>
-              <span>{formData.totalAmount}</span>
+              <span className="font-semibold text-sm">Total:</span>
+              <span className="text-sm">{formData.totalAmount}</span>
             </div>
           </div>
         </div>
