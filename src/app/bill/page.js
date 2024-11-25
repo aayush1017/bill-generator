@@ -3,7 +3,7 @@ import InvoiceDetails from "@/components/invoiceDetails";
 import InvoiceForm from "@/components/invoiceForm";
 import Navbar from "@/components/navbar/navbar";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function BillPage() {
   const [beforeTax, setBeforeTax] = useState("");
@@ -29,8 +29,22 @@ function BillPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setShow(true);
-    // console.log(formData);
+    localStorage.setItem("invoiceNo", formData.invoiceNo);
+    // localStorage.setItem("rate", formData.rate);
   };
+
+  useEffect(() => {
+    const storedInvoiceNo = parseInt(localStorage.getItem("invoiceNo"));
+    // console.log(typeof storedInvoiceNo);
+    // const storedRate = parseInt(localStorage.getItem("rate"));
+    if (storedInvoiceNo) {
+      setFormData((prevData) => ({
+        ...prevData,
+        invoiceNo: storedInvoiceNo + 1,
+        // rate: storedRate,
+      }));
+    }
+  }, []);
 
   const isFormValid = () => {
     return (
