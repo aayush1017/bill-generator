@@ -60,6 +60,7 @@ const InvoiceForm = ({ formData, handleChange, handleSubmit, isFormValid }) => {
           >
             <option value="Gold">Gold</option>
             <option value="Silver">Silver</option>
+            <option value="Silver Jewellery">Silver Jewellery</option>
           </select>
         </div>
         <button

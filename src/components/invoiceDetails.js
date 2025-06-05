@@ -112,18 +112,18 @@ const InvoiceDetails = ({ formData, beforeTax }) => {
               <tr>
                 <td className="border border-gray-300 text-center">1</td>
                 <td className="border border-gray-300 text-center">
-                  {`${
-                    formData.material === "Gold"
-                      ? "Pure Gold"
-                      : "Silver Article"
-                  }`}
+                  {formData.material === "Gold"
+                    ? "Pure Gold"
+                    : formData.material === "Silver"
+                    ? "Silver Article"
+                    : "Silver Jewellery"}
                 </td>
                 <td className="border border-gray-300 text-center">
                   {`${formData.material === "Gold" ? "7113" : "7114"}`}
                 </td>
                 <td className="border border-gray-300 text-center">
                   {`${
-                    formData.material === "Silver"
+                    ["Silver", "Silver Jewellery"].includes(formData.material)
                       ? Math.floor(beforeTax / formData.rate)
                       : parseFloat((beforeTax / formData.rate).toFixed(3))
                   } grams`}
