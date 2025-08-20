@@ -22,14 +22,6 @@ const InvoiceForm = ({ formData, handleChange, handleSubmit, isFormValid }) => {
         />
         <input
           type="number"
-          name="invoiceNo"
-          value={formData.invoiceNo}
-          onChange={handleChange}
-          className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
-          placeholder="Invoice No"
-        />
-        <input
-          type="number"
           name="totalAmount"
           value={formData.totalAmount}
           onChange={handleChange}
@@ -43,6 +35,14 @@ const InvoiceForm = ({ formData, handleChange, handleSubmit, isFormValid }) => {
           onChange={handleChange}
           className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
           placeholder="Today's Rate"
+        />
+        <input
+          type="number"
+          name="invoiceNo"
+          value={formData.invoiceNo}
+          onChange={handleChange}
+          className="block w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+          placeholder="Invoice No"
         />
         <div className="mb-4">
           <label
