@@ -30,18 +30,20 @@ function BillPage() {
     e.preventDefault();
     setShow(true);
     localStorage.setItem("invoiceNo", formData.invoiceNo);
-    // localStorage.setItem("rate", formData.rate);
+    localStorage.setItem("rate", formData.rate);
+    localStorage.setItem("date", formData.date);
   };
 
   useEffect(() => {
     const storedInvoiceNo = parseInt(localStorage.getItem("invoiceNo"));
-    // console.log(typeof storedInvoiceNo);
-    // const storedRate = parseInt(localStorage.getItem("rate"));
+    const storedRate = parseInt(localStorage.getItem("rate"));
+    const storedDate = localStorage.getItem("date");
     if (storedInvoiceNo) {
       setFormData((prevData) => ({
         ...prevData,
         invoiceNo: storedInvoiceNo + 1,
-        // rate: storedRate,
+        rate: storedRate,
+        date: storedDate,
       }));
     }
   }, []);
