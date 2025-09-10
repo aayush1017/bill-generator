@@ -48,6 +48,12 @@ function BillPage() {
     }
   }, []);
 
+  useEffect(() => {
+    if (formData.totalAmount) {
+      setBeforeTax(Math.floor((formData.totalAmount / 103) * 100));
+    }
+  }, [formData.totalAmount]);
+
   const isFormValid = () => {
     return (
       formData.name !== "" &&
